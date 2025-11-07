@@ -68,8 +68,16 @@ const CambioDivisa = () => {
             value={fromCurrency}
             onChange={(e) => setFromCurrency(e.target.value)}
           >
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
+            <option value="USD">Dólar americano</option>
+            <option value="EUR">Euro</option>
+            <option value="CHF">Franco suizo</option>
+            <option value="JPY">Yen japonés</option>
+            <option value="HKD">Dólar hongkonés</option>
+            <option value="CAD">Dólar canadiense</option>
+            <option value="CNY">Yuan chino</option>
+            <option value="AUD">Dólar australiano</option>
+            <option value="AUD">Real brasileño</option>
+            <option value="COP">Peso Colombiano</option>
           </select>
         </div>
         <div>
@@ -79,8 +87,16 @@ const CambioDivisa = () => {
             value={toCurrency}
             onChange={(e) => setToCurrency(e.target.value)}
           >
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
+            <option value="USD">Dólar americano</option>
+            <option value="EUR">Euro</option>
+            <option value="CHF">Franco suizo</option>
+            <option value="JPY">Yen japonés</option>
+            <option value="HKD">Dólar hongkonés</option>
+            <option value="CAD">Dólar canadiense</option>
+            <option value="CNY">Yuan chino</option>
+            <option value="AUD">Dólar australiano</option>
+            <option value="AUD">Real brasileño</option>
+            <option value="COP">Peso Colombiano</option>
           </select>
         </div>
         <button onClick={handleConvert}>Convertir</button>
