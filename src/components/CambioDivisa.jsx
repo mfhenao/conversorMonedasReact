@@ -96,7 +96,7 @@ const CambioDivisa = () => {
             <option value="CAD">Dólar canadiense</option>
             <option value="CNY">Yuan chino</option>
             <option value="AUD">Dólar australiano</option>
-            <option value="AUD">Real brasileño</option>
+            <option value="BRL">Real brasileño</option>
             <option value="RUB">Rublo ruso</option>
             <option value="COP">Peso Colombiano</option>
           </select>
