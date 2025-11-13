@@ -1,5 +1,6 @@
 // src/components/CambioDivisa.jsx
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importar Bootstrap
 
 const CambioDivisa = () => {
   const [amount, setAmount] = useState('');
@@ -79,54 +80,59 @@ const CambioDivisa = () => {
   const filteredOptions = currencies.filter(currency => currency.value !== fromCurrency);
 
   return (
-    <div>
-      <h1>Convertidor de Divisas</h1>
-      <div>
-        <div>
-          <label htmlFor="amount">Monto</label>
-          <input
-            type="number"
-            id="amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="fromCurrency">De</label>
-          <select
-            id="fromCurrency"
-            value={fromCurrency}
-            onChange={handleFromCurrencyChange}
-          >
-            {currencies.map((currency) => (
-              <option key={currency.value} value={currency.value}>
-                {currency.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="toCurrency">A</label>
-          <select
-            id="toCurrency"
-            value={toCurrency}
-            onChange={handleToCurrencyChange}
-          >
-            {filteredOptions.map((currency) => (
-              <option key={currency.value} value={currency.value}>
-                {currency.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button onClick={handleConvert}>Convertir</button>
-        {loading && <p>Cargando...</p>}
-        {error && <p>Error: {error}</p>}
-        {convertedAmount !== null && (
-          <div>
-            <h4>Resultado: {convertedAmount} {toCurrency}</h4>
+    <div className="container mt-5">
+      <h1 className="text-center mb-4">Convertidor de Divisas</h1>
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="mb-3">
+            <label htmlFor="amount" className="form-label">Monto</label>
+            <input
+              type="number"
+              id="amount"
+              className="form-control"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
           </div>
-        )}
+          <div className="mb-3">
+            <label htmlFor="fromCurrency" className="form-label">De</label>
+            <select
+              id="fromCurrency"
+              className="form-select"
+              value={fromCurrency}
+              onChange={handleFromCurrencyChange}
+            >
+              {currencies.map((currency) => (
+                <option key={currency.value} value={currency.value}>
+                  {currency.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="toCurrency" className="form-label">A</label>
+            <select
+              id="toCurrency"
+              className="form-select"
+              value={toCurrency}
+              onChange={handleToCurrencyChange}
+            >
+              {filteredOptions.map((currency) => (
+                <option key={currency.value} value={currency.value}>
+                  {currency.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button className="btn btn-dark w-100" onClick={handleConvert}>Convertir</button>
+          {loading && <p className="mt-3 text-center">Cargando...</p>}
+          {error && <p className="mt-3 text-center text-danger">Error: {error}</p>}
+          {convertedAmount !== null && (
+            <div className="mt-3 text-center">
+              <h4>Resultado: {convertedAmount} {toCurrency}</h4>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
