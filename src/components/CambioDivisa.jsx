@@ -80,6 +80,10 @@ const CambioDivisa = () => {
             <option value="RUB">Rublo ruso</option>
             <option value="COP">Peso Colombiano</option>
             <option value="PEN">Sol Peruano</option>
+            <option value="MXN">Peso Mexicano</option>
+            <option value="KRW">Won Surcoreano</option>
+            <option value="IDR">Rupia Indonesia</option>
+            
           </select>
         </div>
         <div>
@@ -101,6 +105,10 @@ const CambioDivisa = () => {
             <option value="RUB">Rublo ruso</option>
             <option value="COP">Peso Colombiano</option>
             <option value="PEN">Sol Peruano</option>
+            <option value="MXN">Peso Mexicano</option>
+            <option value="KRW">Won Surcoreano</option>
+            <option value="IDR">Rupia Indonesia</option>
+            
           </select>
         </div>
         <button onClick={handleConvert}>Convertir</button>
