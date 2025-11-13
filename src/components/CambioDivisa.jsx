@@ -4,12 +4,30 @@ import React, { useState } from 'react';
 const CambioDivisa = () => {
   const [amount, setAmount] = useState('');
   const [fromCurrency, setFromCurrency] = useState('USD');
-  const [toCurrency, setToCurrency] = useState('EUR');
+  const [toCurrency, setToCurrency] = useState('');
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const API_KEY = '71653b5ed6a7daa58940ce22';
+
+  const currencies = [
+    { value: 'USD', label: 'Dólar americano' },
+    { value: 'EUR', label: 'Euro' },
+    { value: 'CHF', label: 'Franco suizo' },
+    { value: 'JPY', label: 'Yen japonés' },
+    { value: 'HKD', label: 'Dólar hongkonés' },
+    { value: 'CAD', label: 'Dólar canadiense' },
+    { value: 'CNY', label: 'Yuan chino' },
+    { value: 'AUD', label: 'Dólar australiano' },
+    { value: 'BRL', label: 'Real brasileño' },
+    { value: 'RUB', label: 'Rublo ruso' },
+    { value: 'COP', label: 'Peso Colombiano' },
+    { value: 'PEN', label: 'Sol Peruano' },
+    { value: 'MXN', label: 'Peso Mexicano' },
+    { value: 'KRW', label: 'Won Surcoreano' },
+    { value: 'IDR', label: 'Rupia Indonesia' },
+  ];
 
   // Función para conectar con la API y obtener las tasas de cambio
   const fetchExchangeRate = async (from) => {
@@ -48,6 +66,18 @@ const CambioDivisa = () => {
     }
   };
 
+  const handleFromCurrencyChange = (e) => {
+    const selectedCurrency = e.target.value;
+    setFromCurrency(selectedCurrency);
+    setToCurrency('');
+  };
+
+  const handleToCurrencyChange = (e) => {
+    setToCurrency(e.target.value);
+  };
+
+  const filteredOptions = currencies.filter(currency => currency.value !== fromCurrency);
+
   return (
     <div>
       <h1>Convertidor de Divisas</h1>
@@ -66,24 +96,13 @@ const CambioDivisa = () => {
           <select
             id="fromCurrency"
             value={fromCurrency}
-            onChange={(e) => setFromCurrency(e.target.value)}
+            onChange={handleFromCurrencyChange}
           >
-            <option value="USD">Dólar americano</option>
-            <option value="EUR">Euro</option>
-            <option value="CHF">Franco suizo</option>
-            <option value="JPY">Yen japonés</option>
-            <option value="HKD">Dólar hongkonés</option>
-            <option value="CAD">Dólar canadiense</option>
-            <option value="CNY">Yuan chino</option>
-            <option value="AUD">Dólar australiano</option>
-            <option value="BRL">Real brasileño</option>
-            <option value="RUB">Rublo ruso</option>
-            <option value="COP">Peso Colombiano</option>
-            <option value="PEN">Sol Peruano</option>
-            <option value="MXN">Peso Mexicano</option>
-            <option value="KRW">Won Surcoreano</option>
-            <option value="IDR">Rupia Indonesia</option>
-            
+            {currencies.map((currency) => (
+              <option key={currency.value} value={currency.value}>
+                {currency.label}
+              </option>
+            ))}
           </select>
         </div>
         <div>
@@ -91,24 +110,13 @@ const CambioDivisa = () => {
           <select
             id="toCurrency"
             value={toCurrency}
-            onChange={(e) => setToCurrency(e.target.value)}
+            onChange={handleToCurrencyChange}
           >
-            <option value="USD">Dólar americano</option>
-            <option value="EUR">Euro</option>
-            <option value="CHF">Franco suizo</option>
-            <option value="JPY">Yen japonés</option>
-            <option value="HKD">Dólar hongkonés</option>
-            <option value="CAD">Dólar canadiense</option>
-            <option value="CNY">Yuan chino</option>
-            <option value="AUD">Dólar australiano</option>
-            <option value="BRL">Real brasileño</option>
-            <option value="RUB">Rublo ruso</option>
-            <option value="COP">Peso Colombiano</option>
-            <option value="PEN">Sol Peruano</option>
-            <option value="MXN">Peso Mexicano</option>
-            <option value="KRW">Won Surcoreano</option>
-            <option value="IDR">Rupia Indonesia</option>
-            
+            {filteredOptions.map((currency) => (
+              <option key={currency.value} value={currency.value}>
+                {currency.label}
+              </option>
+            ))}
           </select>
         </div>
         <button onClick={handleConvert}>Convertir</button>
