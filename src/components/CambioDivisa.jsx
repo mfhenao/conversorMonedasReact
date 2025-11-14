@@ -82,7 +82,8 @@ const CambioDivisa = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Convertidor de Divisas</h1>
+      <div className='box-central'>
+        <h1 className="text-center mb-4">Convertidor de Divisas</h1>
       <div className="row justify-content-center">
         <div className="col-md-6">
 
@@ -107,7 +108,7 @@ const CambioDivisa = () => {
             </div>
           )}
 
-          <div className="mb-3">
+          <div className="mb-3 text-center">
             <label htmlFor="fromCurrency" className="form-label">De</label>
             <select
               id="fromCurrency"
@@ -133,7 +134,7 @@ const CambioDivisa = () => {
             </div>
           )}
 
-          <div className="mb-3">
+          <div className="mb-3 text-center">
             <label htmlFor="toCurrency" className="form-label">A</label>
             <select
               id="toCurrency"
@@ -163,6 +164,8 @@ const CambioDivisa = () => {
           )}
 
         </div>
+      </div>
+
       </div>
     </div>
   );
