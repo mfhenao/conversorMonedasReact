@@ -90,17 +90,25 @@ Interfaz de la Api
 
 Paso 1:
 
+Ingresas el monto que necesitas convertir
+
 ![Ingresas el monto que necesitas convertir](image-1.png)
 
 Paso 2:
+
+Seleccionas la moneda de origen
 
 ![Seleccionas la moneda de origen](image-2.png)
 
 Paso 3: 
 
+Seleccionas la moneda de destino
+
 ![Seleccionas la moneda de destino](image-3.png)
 
 Paso 4:
+
+Haces clic en el boton convertir y la api te dara la equivalencia de tu monto en la moneda de destino
 
 ![Haces clic en el boton convertir y la api te dara la equivalencia de tu monto en la moneda de destino](image-4.png)
 
